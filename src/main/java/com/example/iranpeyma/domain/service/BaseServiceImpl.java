@@ -1,0 +1,59 @@
+package com.example.iranpeyma.domain.service;
+
+import com.example.iranpeyma.domain.entity.BaseEntity;
+import com.example.iranpeyma.domain.repository.BaseRepository;
+
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+
+public class BaseServiceImpl<T extends BaseEntity<ID>,ID extends Serializable,R extends BaseRepository<T,ID>>
+        implements BaseService<T,ID>{
+
+    protected final R repository;
+
+    public BaseServiceImpl(R repository) {
+        this.repository = repository;
+    }
+
+    @Override
+    public T save(T t) {
+        repository.beginTransaction();
+        T save = repository.save(t);
+        repository.commitTransaction();
+        return save;
+    }
+
+    @Override
+    public List<T> saveALl(Collection<T> ts) {
+        repository.beginTransaction();
+        List<T> ts1 = repository.saveALl(ts);
+        repository.commitTransaction();
+        return ts1;
+    }
+
+    @Override
+    public Optional<T> findById(ID id) {
+        return repository.findById(id);
+    }
+
+    @Override
+    public T findByIdNotOptional(ID id) {
+        return repository.findByIdNotOptional(id);
+    }
+
+    @Override
+    public void deleteById(ID id) {
+        repository.beginTransaction();
+        repository.deleteById(id);
+        repository.commitTransaction();
+    }
+
+    @Override
+    public List<T> findAll() {
+        return repository.findAll();
+    }
+
+
+}
