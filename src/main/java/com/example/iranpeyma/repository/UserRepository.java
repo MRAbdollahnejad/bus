@@ -1,7 +1,8 @@
 package com.example.iranpeyma.repository;
 
 import com.example.iranpeyma.base.repository.BaseRepository;
-import com.example.iranpeyma.entity.User;
+import com.example.iranpeyma.entity.Users;
 
-public interface UserRepository extends BaseRepository<User,Long> {
+public interface UserRepository extends BaseRepository<Users,Long> {
+    Users findUserByUsernameAndPassword(String username,String password);
 }

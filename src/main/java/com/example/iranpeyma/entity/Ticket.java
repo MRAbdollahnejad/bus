@@ -6,6 +6,7 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -20,5 +21,10 @@ public class Ticket extends BaseEntity<Long> {
     UUID uuid=UUID.randomUUID();
 
     String owner;
+    @ManyToOne
+    Users users;
+
+    @ManyToOne
+    Trip trip;
 
 }

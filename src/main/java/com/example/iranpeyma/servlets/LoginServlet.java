@@ -1,5 +1,6 @@
 package com.example.iranpeyma.servlets;
 
+import com.example.iranpeyma.dto.LoginDto;
 import com.example.iranpeyma.security.HashedPassword;
 import com.example.iranpeyma.util.Validation;
 
@@ -26,6 +27,9 @@ public class LoginServlet extends HttpServlet {
             byte[] hashedPassword;
             try {
                 hashedPassword = newPassword.createHashedPassword(pass);
+                LoginDto loginDto=new LoginDto();
+                loginDto.setUName(username);
+                loginDto.setPass(hashedPassword);
 
 
             } catch (NoSuchAlgorithmException e) {
