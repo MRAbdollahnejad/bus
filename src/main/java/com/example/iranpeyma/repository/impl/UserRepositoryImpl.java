@@ -18,7 +18,7 @@ public class UserRepositoryImpl extends BaseRepositoryImpl<Users,Long> implement
     }
 
     //Todo Optional return
-    public Users findUserByUsernameAndPassword(String username,String password){
+    public Users findUserByUsernameAndPassword(String username,byte[] password){
         TypedQuery<Users> query =
                 em.createQuery("select u from Users u where u.uName=:uname and u.pass=:pass"
                         , getEntityClass());

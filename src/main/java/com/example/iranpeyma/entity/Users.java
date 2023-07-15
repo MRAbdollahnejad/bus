@@ -17,8 +17,6 @@ public class Users extends BaseEntity<Long> {
 
     @Column(unique = true)
     String uName;
-    String pass;
-
-
+    byte[] pass;
 
 }
