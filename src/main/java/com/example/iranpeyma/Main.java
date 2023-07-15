@@ -4,19 +4,21 @@ import com.example.iranpeyma.entity.City;
 import com.example.iranpeyma.entity.Ticket;
 import com.example.iranpeyma.entity.Trip;
 import com.example.iranpeyma.entity.Users;
+import com.example.iranpeyma.security.HashedPassword;
 import com.example.iranpeyma.service.CityService;
 import com.example.iranpeyma.service.TicketService;
 import com.example.iranpeyma.service.TripService;
 import com.example.iranpeyma.service.UserService;
 
 
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 import static com.example.iranpeyma.util.ApplicationContext.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchAlgorithmException {
 //        TripService tripService=getTripService();
 //        CityService cityService=getCityService();
 //        UserService userService=getUserService();
@@ -58,9 +60,11 @@ public class Main {
 //        trip3.setLocalTime(localTime3);
 //        tripService.save(trip3);
 //
-//        Users user1=new Users("muhammad","reza1");
+//        HashedPassword hashedPassword= new HashedPassword();
+//
+//        Users user1=new Users("muhammad",hashedPassword.createHashedPassword("reza1"));
 //        userService.save(user1);
-//        Users user2=new Users("mahdi","mahdi1");
+//        Users user2=new Users("mahdi",hashedPassword.createHashedPassword("mahdi1"));
 //        userService.save(user2);
 //
 //        Ticket ticket=new Ticket();

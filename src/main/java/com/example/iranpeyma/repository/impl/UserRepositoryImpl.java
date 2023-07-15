@@ -5,10 +5,12 @@ import com.example.iranpeyma.entity.Users;
 import com.example.iranpeyma.repository.UserRepository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
+import java.util.Optional;
 
-public class UserRepositoryImpl extends BaseRepositoryImpl<Users,Long> implements UserRepository {
-     public UserRepositoryImpl(EntityManager em) {
+public class UserRepositoryImpl extends BaseRepositoryImpl<Users, Long> implements UserRepository {
+    public UserRepositoryImpl(EntityManager em) {
         super(em);
     }
 
@@ -17,13 +19,14 @@ public class UserRepositoryImpl extends BaseRepositoryImpl<Users,Long> implement
         return Users.class;
     }
 
-    //Todo Optional return
-    public Users findUserByUsernameAndPassword(String username,byte[] password){
+
+    public Optional<Users> findUserByUsernameAndPassword(String username, byte[] password) throws NoResultException {
         TypedQuery<Users> query =
                 em.createQuery("select u from Users u where u.uName=:uname and u.pass=:pass"
                         , getEntityClass());
-        query.setParameter("uname",username);
-        query.setParameter("pass",password);
-        return query.getSingleResult();
+        query.setParameter("uname", username);
+        query.setParameter("pass", password);
+
+        return Optional.of(query.getSingleResult());
     }
 }

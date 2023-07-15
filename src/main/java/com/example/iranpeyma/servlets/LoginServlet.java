@@ -5,6 +5,7 @@ import com.example.iranpeyma.security.HashedPassword;
 import com.example.iranpeyma.service.UserService;
 import com.example.iranpeyma.util.Validation;
 
+import javax.persistence.NoResultException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,17 +35,20 @@ public class LoginServlet extends HttpServlet {
                 loginDto.setUName(username);
                 loginDto.setPass(hashedPassword);
                 UserService userService=getUserService();
-                if (userService.isUserExist(loginDto)){
-                    //create session
-                    // go to another page
-                    //TODO
-                    HttpSession session = req.getSession();
+                try {
+                    if (userService.isUserExist(loginDto)){
+                        //create session
+                        // go to another page
+                        //TODO
+//                    HttpSession session = req.getSession();
+                        PrintWriter out = resp.getWriter();
+                        out.println("welcome"+ username);
+                    }
+                }catch (NoResultException e){
+                    PrintWriter out = resp.getWriter();
+                    out.println("username or password is wrong");
 
-                }else {
-                    resp.sendRedirect("login.jsp");
                 }
-
-
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
             }
