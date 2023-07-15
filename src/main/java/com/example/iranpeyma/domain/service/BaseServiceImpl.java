@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public class BaseServiceImpl<T extends BaseEntity<ID>,ID extends Serializable,R extends BaseRepository<T,ID>>
+public abstract class BaseServiceImpl<T extends BaseEntity<ID>,ID extends Serializable,R extends BaseRepository<T,ID>>
         implements BaseService<T,ID>{
 
     protected final R repository;
