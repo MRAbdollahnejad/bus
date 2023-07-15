@@ -1,7 +1,7 @@
-package com.example.iranpeyma.domain.service;
+package com.example.iranpeyma.base.service;
 
-import com.example.iranpeyma.domain.entity.BaseEntity;
-import com.example.iranpeyma.domain.repository.BaseRepository;
+import com.example.iranpeyma.base.entity.BaseEntity;
+import com.example.iranpeyma.base.repository.BaseRepository;
 
 import java.io.Serializable;
 import java.util.Collection;

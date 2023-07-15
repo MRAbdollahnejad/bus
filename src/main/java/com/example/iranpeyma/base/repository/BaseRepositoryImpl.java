@@ -1,6 +1,6 @@
-package com.example.iranpeyma.domain.repository;
+package com.example.iranpeyma.base.repository;
 
-import com.example.iranpeyma.domain.entity.BaseEntity;
+import com.example.iranpeyma.base.entity.BaseEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;

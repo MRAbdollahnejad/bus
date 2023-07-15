@@ -1,4 +1,4 @@
-package com.example.iranpeyma.domain.entity;
+package com.example.iranpeyma.base.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

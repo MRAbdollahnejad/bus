@@ -1,6 +1,6 @@
 package com.example.iranpeyma.entity;
 
-import com.example.iranpeyma.domain.entity.BaseEntity;
+import com.example.iranpeyma.base.entity.BaseEntity;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
