@@ -4,6 +4,7 @@ import com.example.iranpeyma.base.entity.BaseEntity;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
@@ -14,6 +15,7 @@ import javax.persistence.Entity;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class City extends BaseEntity<Long> {
 
+    @Column(unique = true)
     String cityName;
 
 }

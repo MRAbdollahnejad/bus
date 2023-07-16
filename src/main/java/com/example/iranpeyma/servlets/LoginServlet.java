@@ -1,9 +1,8 @@
 package com.example.iranpeyma.servlets;
 
-import com.example.iranpeyma.dto.LoginDto;
+import com.example.iranpeyma.command.LoginCommand;
 import com.example.iranpeyma.security.HashedPassword;
 import com.example.iranpeyma.service.UserService;
-import com.example.iranpeyma.util.Validation;
 
 import javax.persistence.NoResultException;
 import javax.servlet.ServletException;
@@ -31,12 +30,12 @@ public class LoginServlet extends HttpServlet {
             byte[] hashedPassword;
             try {
                 hashedPassword = newPassword.createHashedPassword(pass);
-                LoginDto loginDto=new LoginDto();
-                loginDto.setUName(username);
-                loginDto.setPass(hashedPassword);
+                LoginCommand loginCommand =new LoginCommand();
+                loginCommand.setUName(username);
+                loginCommand.setPass(hashedPassword);
                 UserService userService=getUserService();
                 try {
-                    if (userService.isUserExist(loginDto)){
+                    if (userService.isUserExist(loginCommand)){
                         //create session
                         // go to another page
                         //TODO

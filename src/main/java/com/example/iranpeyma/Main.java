@@ -64,7 +64,7 @@ public class Main {
 //
 //        Users user1=new Users("muhammad",hashedPassword.createHashedPassword("reza1"));
 //        userService.save(user1);
-//        Users user2=new Users("mahdi",hashedPassword.createHashedPassword("mahdi1"));
+//        Users user2=new Users("Mahdi",hashedPassword.createHashedPassword("mahdi1"));
 //        userService.save(user2);
 //
 //        Ticket ticket=new Ticket();

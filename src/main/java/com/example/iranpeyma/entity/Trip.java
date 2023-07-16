@@ -25,10 +25,10 @@ public class Trip extends BaseEntity<Long> {
     City destinationCity;
 
     @Column(name = "local_time", columnDefinition = "TIME")
-    private LocalTime localTime;
+    LocalTime localTime;
 
     @Column(name = "local_date", columnDefinition = "DATE")
-    private LocalDate localDate;
+    LocalDate localDate;
 
     @Column(unique = true)
     UUID uuid=UUID.randomUUID();
