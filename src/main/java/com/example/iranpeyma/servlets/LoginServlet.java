@@ -40,14 +40,16 @@ public class LoginServlet extends HttpServlet {
                         //create session
                         // go to another page
                         //TODO
-//                    HttpSession session = req.getSession();
-                        PrintWriter out = resp.getWriter();
-                        out.println("welcome"+ username);
+                    HttpSession session = req.getSession();
+                    session.setAttribute("username",username);
+                        /*PrintWriter out = resp.getWriter();
+                        out.println("welcome"+ username);*/
+                        resp.sendRedirect("home.jsp");
                     }
                 }catch (NoResultException e){
                     PrintWriter out = resp.getWriter();
                     out.println("username or password is wrong");
-
+//                    resp.sendRedirect("login.jsp");
                 }
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
