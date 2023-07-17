@@ -41,13 +41,13 @@ public class Main {
 //        LocalTime localTime =LocalTime.of(15,30);
 //        trip.setLocalTime(localTime);
 //        tripService.save(trip);
-//
+////
 //        Trip trip2=new Trip();
 //        trip2.setStartCity(city);
 //        trip2.setDestinationCity(city3);
 //        LocalDate localDate2 =LocalDate.of(1402,5,23);
 //        trip2.setLocalDate(localDate2);
-//        LocalTime localTime2 =LocalTime.of(11,30);
+//        LocalTime localTime2 =LocalTime.of(14,30);
 //        trip2.setLocalTime(localTime2);
 //        tripService.save(trip2);
 //
@@ -59,6 +59,16 @@ public class Main {
 //        LocalTime localTime3 =LocalTime.of(14,30);
 //        trip3.setLocalTime(localTime3);
 //        tripService.save(trip3);
+//
+//        Trip trip4=new Trip();
+//        trip4.setStartCity(city);
+//        trip4.setDestinationCity(city3);
+//        trip4.setLocalDate(localDate2);
+//        LocalTime localTime4 =LocalTime.of(11,30);
+//        trip4.setLocalTime(localTime4);
+//        tripService.save(trip4);
+//
+//
 //
 //        HashedPassword hashedPassword= new HashedPassword();
 //
