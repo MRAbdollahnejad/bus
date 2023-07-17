@@ -11,6 +11,27 @@
     <title>see all tickets</title>
 </head>
 <body>
+all tickets here:
+
+<%--todo two option pass req to servlet or create jsp here--%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <%
     if (session.getAttribute("username") == (null)) {
         response.sendRedirect("login.jsp");

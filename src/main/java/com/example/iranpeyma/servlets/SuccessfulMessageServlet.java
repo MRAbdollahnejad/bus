@@ -18,12 +18,8 @@ public class SuccessfulMessageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-//        String gender = (String) req.getSession().getAttribute("gender");
-//        String name = (String) req.getSession().getAttribute("name");
-
         Trip trip = (Trip) req.getSession().getAttribute("trip-for-search");
 
-        //have trip and national code to search on tickets
         TicketService ticketService = ApplicationContext.getTicketService();
         TicketCommand ticketCommand = new TicketCommand();
         ticketCommand.setOwnerCode((String) req.getSession().getAttribute("national-code"));

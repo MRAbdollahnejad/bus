@@ -11,8 +11,8 @@
 %>
 <%--Todo--%>
 <a href="buy-ticket.jsp">buy ticket</a>
-
-<a href="all-ticket.jsp">see all ticket</a>
+<br>
+<a href="${pageContext.request.contextPath}/reserved-tickets">see all ticket</a>
 
 <form action="logout" method="post">
     <input type="submit" value="logout">

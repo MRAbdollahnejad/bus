@@ -33,8 +33,22 @@
 
 <form action="home.jsp" method="post">
     <input type="submit" value="home">
-</form>
 
+
+
+
+
+
+
+
+
+
+</form>
+<%
+    if (session.getAttribute("username") == (null)) {
+        response.sendRedirect("login.jsp");
+    }
+%>
 <form action="logout" method="post">
     <input type="submit" value="logout">
 </form>

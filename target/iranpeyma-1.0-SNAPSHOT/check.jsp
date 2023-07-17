@@ -14,5 +14,10 @@
 <%
     response.getWriter().println("not allowed to have more than one ticket with same way and national code");
 %>
+<%
+    if (session.getAttribute("username") == (null)) {
+        response.sendRedirect("login.jsp");
+    }
+%>
 </body>
 </html>

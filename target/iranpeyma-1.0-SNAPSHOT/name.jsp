@@ -32,6 +32,15 @@
     <br>
     <input type="submit">
 
+
+
+
+    <%
+        if (session.getAttribute("username") == (null)) {
+            response.sendRedirect("login.jsp");
+        }
+    %>
+
 </form>
 
 </body>
