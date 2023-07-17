@@ -35,7 +35,7 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket,Long> implem
 
     @Override
     public List<Ticket> findByUsername(LoginCommand loginCommand) throws NoResultException {
-        TypedQuery<Ticket> query = em.createQuery("select t from Ticket t where t.users=:us " +
+        TypedQuery<Ticket> query = em.createQuery("select t from Ticket t where t.users.uName=:us " +
                 " order by t.trip.localDate , t.trip.localTime asc ", getEntityClass());
         query.setParameter("us",loginCommand.getUName());
         return query.getResultList();

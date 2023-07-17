@@ -1,4 +1,6 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.iranpeyma.entity.Ticket" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: mrabd
   Date: 7/16/2023
@@ -12,9 +14,46 @@
 </head>
 <body>
 all tickets here:
+<%--todo create for loop --%>
+<table border="1">
+    <tr>
+        <th>
+            choose
+        </th>
+        <th>
+            ticket code
+        </th>
+        <th>
+            date
+        </th>
+    </tr>
 
-<%--todo two option pass req to servlet or create jsp here--%>
+<%
+    List<Ticket> ticketList =new ArrayList<>();
+    List<Ticket> attribute = (List<Ticket>) request.getSession().getAttribute("tickets-by-user");
+    ticketList.addAll(attribute) ;
+    for (int i = 0; i <ticketList.size() ; i++) {
+        %>
 
+    <tr>
+        <td>
+            <form action="${pageContext.request.contextPath}/ticket-info.jsp" method="post">
+                <button type="submit" name="index" value="<%=i%>"> choose </button>
+            </form>
+        </td>
+        <td>
+            <%=ticketList.get(i).getUuid()%>
+        </td>
+        <td>
+            <%=ticketList.get(i).getTrip().getLocalDate()%>
+        </td>
+    </tr>
+
+<%
+    }
+%>
+
+</table>
 
 
 
