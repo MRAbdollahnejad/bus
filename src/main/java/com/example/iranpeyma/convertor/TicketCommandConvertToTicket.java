@@ -11,6 +11,7 @@ public class TicketCommandConvertToTicket {
         ticket.setUsers(ticketCommand.getUsers());
         ticket.setGender(ticketCommand.getGender());
         ticket.setUuid(ticketCommand.getUuid());
+        ticket.setOwnerCode(ticketCommand.getOwnerCode());
         return ticket;
     }
 }

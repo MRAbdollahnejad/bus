@@ -16,6 +16,11 @@
         <input type="text" name="name" autocomplete="off" required>
     </label>
     <br>
+    <label> enter your national code :
+<%--        Todo only digit filter --%>
+        <input type="text" name="national-code" autocomplete="off" required>
+    </label>
+    <br>
     enter your gender : <br>
     <label> man
         <input type="radio" name="gender" value="man" required>
@@ -26,6 +31,15 @@
     </label>
     <br>
     <input type="submit">
+
+
+
+
+    <%
+        if (session.getAttribute("username") == (null)) {
+            response.sendRedirect("login.jsp");
+        }
+    %>
 
 </form>
 

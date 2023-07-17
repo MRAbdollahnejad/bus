@@ -7,6 +7,8 @@ import com.example.iranpeyma.entity.Ticket;
 import com.example.iranpeyma.repository.TicketRepository;
 import com.example.iranpeyma.service.TicketService;
 
+import javax.persistence.NoResultException;
+
 public class TicketServiceImpl extends BaseServiceImpl<Ticket,Long, TicketRepository> implements TicketService {
     public TicketServiceImpl(TicketRepository repository) {
         super(repository);
@@ -18,5 +20,22 @@ public class TicketServiceImpl extends BaseServiceImpl<Ticket,Long, TicketReposi
         Ticket ticket=ticketCommandConvertToTicket.convert(ticketCommand);
         this.save(ticket);
         return ticketCommand;
+    }
+
+    @Override
+    public Ticket findByNationalCodeAndTrip(TicketCommand ticketCommand) throws NoResultException {
+        return repository.findByNationalCodeAndTrip(ticketCommand);
+    }
+
+    @Override
+    public boolean isExistWithNationalCodeAndTrip(TicketCommand ticketCommand) {
+        boolean flag=false;
+        try {
+            repository.findByNationalCodeAndTrip(ticketCommand);
+            flag=true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return flag;
     }
 }

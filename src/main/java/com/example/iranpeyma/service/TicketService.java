@@ -6,4 +6,6 @@ import com.example.iranpeyma.entity.Ticket;
 
 public interface TicketService extends BaseService<Ticket,Long> {
     TicketCommand createTicket(TicketCommand ticketCommand);
+    Ticket findByNationalCodeAndTrip(TicketCommand ticketCommand);
+    boolean isExistWithNationalCodeAndTrip(TicketCommand ticketCommand);
 }

@@ -23,6 +23,9 @@ public class Ticket extends BaseEntity<Long> {
     Gender gender;
 
     String owner;
+
+    String ownerCode;
+
     @ManyToOne
     Users users;
 

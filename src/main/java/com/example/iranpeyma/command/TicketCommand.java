@@ -21,6 +21,7 @@ public class TicketCommand {
     UUID uuid=UUID.randomUUID();
     Gender gender;
     String owner;
+    String ownerCode;
     Users users;
     Trip trip;
 }

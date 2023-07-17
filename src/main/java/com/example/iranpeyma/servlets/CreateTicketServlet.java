@@ -31,13 +31,15 @@ public class CreateTicketServlet extends HttpServlet {
         int index = Integer.parseInt((String) req.getSession().getAttribute("index"));
         Trip trip = trips.get(index);
 
+        req.getSession().setAttribute("trip-for-search", trip);
+
         TicketService ticketService = ApplicationContext.getTicketService();
-        TicketCommand ticketCommand=new TicketCommand();
+        TicketCommand ticketCommand = new TicketCommand();
         String gender = req.getParameter("gender");
         Gender gender1;
-        if (gender.equals("man")){
-            gender1=Gender.MAN;
-        }else gender1=Gender.WOMAN;
+        if (gender.equals("man")) {
+            gender1 = Gender.MAN;
+        } else gender1 = Gender.WOMAN;
         ticketCommand.setGender(gender1);
 
         String name = req.getParameter("name");
@@ -47,16 +49,37 @@ public class CreateTicketServlet extends HttpServlet {
 
         HttpSession session1 = req.getSession();
         String username = (String) session1.getAttribute("username");
-        LoginCommand loginCommand=new LoginCommand();
+        LoginCommand loginCommand = new LoginCommand();
         loginCommand.setUName(username);
 
         UserService userService = ApplicationContext.getUserService();
         Users userByUsername = userService.findUserByUsername(loginCommand);
         ticketCommand.setUsers(userByUsername);
 
-        ticketService.createTicket(ticketCommand);
+        //TODO filter only digit
+        String nationalCode = req.getParameter("national-code");
+        ticketCommand.setOwnerCode(nationalCode);
 
-        resp.sendRedirect(req.getContextPath()+"/successful");
+        if (!ticketService.isExistWithNationalCodeAndTrip(ticketCommand)) {
 
+            ticketService.createTicket(ticketCommand);
+
+
+            HttpSession session2 = req.getSession();
+            session2.setAttribute("gender", gender);
+
+            HttpSession session3 = req.getSession();
+            session3.setAttribute("name", name);
+
+            HttpSession session4 = req.getSession();
+            session4.setAttribute("national-code", nationalCode);
+
+            resp.sendRedirect(req.getContextPath() + "/successful");
+
+
+        } else {
+            //TODO optional go on another page or stay same page
+            resp.getWriter().println("not allowed to have more than one ticket with same way and national code");
+        }
     }
 }
