@@ -1,6 +1,7 @@
 package com.example.iranpeyma.repository.impl;
 
 import com.example.iranpeyma.base.repository.BaseRepositoryImpl;
+import com.example.iranpeyma.command.LoginCommand;
 import com.example.iranpeyma.entity.Users;
 import com.example.iranpeyma.repository.UserRepository;
 
@@ -28,5 +29,11 @@ public class UserRepositoryImpl extends BaseRepositoryImpl<Users, Long> implemen
         query.setParameter("pass", password);
 
         return Optional.of(query.getSingleResult());
+    }
+
+    @Override
+    public Users findUserByUsername(LoginCommand loginCommand) {
+        TypedQuery<Users> query = em.createQuery("select u from Users u where u.uName=:u", getEntityClass());
+        return query.setParameter("u", loginCommand.getUName()).getSingleResult();
     }
 }

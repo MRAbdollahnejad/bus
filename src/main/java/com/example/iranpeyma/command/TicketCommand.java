@@ -1,32 +1,26 @@
-package com.example.iranpeyma.entity;
+package com.example.iranpeyma.command;
 
-import com.example.iranpeyma.base.entity.BaseEntity;
+import com.example.iranpeyma.entity.Trip;
+import com.example.iranpeyma.entity.Users;
 import com.example.iranpeyma.entity.enums.Gender;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.ManyToOne;
 import java.util.UUID;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 @Setter
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Ticket extends BaseEntity<Long> {
+public class TicketCommand {
 
-    @Column(unique = true)
     UUID uuid=UUID.randomUUID();
-
-    @Enumerated(EnumType.STRING)
     Gender gender;
-
     String owner;
-    @ManyToOne
     Users users;
-
-    @ManyToOne
     Trip trip;
-
 }

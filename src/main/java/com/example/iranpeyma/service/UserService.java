@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface UserService extends BaseService<Users,Long> {
     Optional<Users> findUserByUsernameAndPassword(String username, byte[] password);
     boolean isUserExist(LoginCommand loginCommand);
+    Users findUserByUsername(LoginCommand loginCommand);
 }

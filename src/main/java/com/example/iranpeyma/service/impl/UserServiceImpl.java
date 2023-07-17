@@ -23,4 +23,9 @@ public class UserServiceImpl extends BaseServiceImpl<Users,Long, UserRepository>
         return findUserByUsernameAndPassword(loginCommand.getUName(), loginCommand.getPass()).isPresent();
     }
 
+    @Override
+    public Users findUserByUsername(LoginCommand loginCommand) {
+        return repository.findUserByUsername(loginCommand);
+    }
+
 }
