@@ -21,7 +21,6 @@
     </select>
 
     <label for="date"> enter the date </label>
-<%--    front check--%>
     <input type="date" id="date" name="date" min="1402-01-01" max="1403-01-01">
 
     <input type="submit">

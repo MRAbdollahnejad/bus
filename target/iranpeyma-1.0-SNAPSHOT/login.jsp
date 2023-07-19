@@ -10,18 +10,45 @@
 <head>
     <title>Login Page</title>
 </head>
+<style>
+    body{
+        background-color: lightgreen;
+    }
+    div{
+        align-content: center;
+        align-items: center;
+        background-color: forestgreen;
+        display: flex;
+        padding: 5%;
+        width: 20rem;
+        margin: auto;
+        margin-top: 5%;
+        border-radius: 10px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: azure;
+    }
+    input{
+        padding: 5%;
+        margin: 5%;
+        align-items: center;
+        align-content: center;
+    }
+</style>
 <body>
-<form action="login" method="post">
-    enter your username:
-    <label>
-        <input type="text" name="username" autocomplete="off" >
-    </label> <br>
-    enter your password:
-    <label>
-        <input type="password" name="pass" autocomplete="off">
-    </label><br>
-    <input type="submit">
-</form>
+<div>
+    <form action="login" method="post">
+        enter your username:
+        <label>
+            <input type="text" name="username" autocomplete="off" >
+        </label> <br>
+        enter your password:
+        <label>
+            <input type="password" name="pass" autocomplete="off">
+        </label><br>
+        <input type="submit">
+    </form>
+</div>
+
 
 </body>
 </html>

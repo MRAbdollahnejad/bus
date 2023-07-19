@@ -10,8 +10,14 @@
 <head>
     <title>Title</title>
 </head>
+<style>
+   .form{
+       background-color: aquamarine;
+   }
+</style>
 <body>
-<form action="create-ticket" method="post">
+
+<form action="create-ticket" method="post" class="form">
     <label> enter your name :
         <input type="text" name="name" autocomplete="off" required>
     </label>
@@ -30,7 +36,7 @@
     </label>
     <br>
     <input type="submit">
-
+</form>
 
 
 
@@ -40,7 +46,7 @@
         }
     %>
 
-</form>
+
 
 </body>
 </html>
