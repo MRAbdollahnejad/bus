@@ -63,11 +63,22 @@
         </tr>
         <tr>
             <td>
-                <input type="submit">
+                <input type="submit" value="delete ticket">
             </td>
         </tr>
 
     </table>
+</form>
+<form action="home.jsp" method="post">
+    <input type="submit" value="home">
+</form>
+<%
+    if (session.getAttribute("username") == (null)) {
+        response.sendRedirect("login.jsp");
+    }
+%>
+<form action="logout" method="post">
+    <input type="submit" value="logout">
 </form>
 </body>
 </html>

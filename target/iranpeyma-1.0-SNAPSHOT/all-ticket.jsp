@@ -14,7 +14,6 @@
 </head>
 <body>
 all tickets here:
-<%--todo create for loop --%>
 <table border="1">
     <tr>
         <th>

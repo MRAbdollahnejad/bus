@@ -33,16 +33,6 @@
 
 <form action="home.jsp" method="post">
     <input type="submit" value="home">
-
-
-
-
-
-
-
-
-
-
 </form>
 <%
     if (session.getAttribute("username") == (null)) {
