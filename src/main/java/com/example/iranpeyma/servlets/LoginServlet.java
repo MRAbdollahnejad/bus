@@ -36,9 +36,6 @@ public class LoginServlet extends HttpServlet {
                 UserService userService=getUserService();
                 try {
                     if (userService.isUserExist(loginCommand)){
-                        //create session
-                        // go to another page
-                        //TODO
                     HttpSession session = req.getSession();
                     session.setAttribute("username",username);
                         /*PrintWriter out = resp.getWriter();

@@ -17,7 +17,6 @@
     </label>
     <br>
     <label> enter your national code :
-<%--        Todo only digit filter --%>
         <input type="text" name="national-code" autocomplete="off" required>
     </label>
     <br>

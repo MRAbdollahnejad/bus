@@ -56,7 +56,6 @@ public class CreateTicketServlet extends HttpServlet {
         Users userByUsername = userService.findUserByUsername(loginCommand);
         ticketCommand.setUsers(userByUsername);
 
-        //TODO filter only digit
         String nationalCode = req.getParameter("national-code");
         ticketCommand.setOwnerCode(nationalCode);
 

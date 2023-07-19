@@ -6,7 +6,6 @@ import com.example.iranpeyma.entity.Users;
 public class LoginDtoConvertorToUsers {
 
     public Users convent(LoginCommand loginCommand){
-        //Todo
         return null;
     }
 }
